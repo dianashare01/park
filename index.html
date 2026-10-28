@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#F6F1E8">
+<title>나의 낭송 · MARIE SEOSA 1926</title>
+<meta property="og:title" content="나의 낭송 · MARIE SEOSA 1926">
+<meta property="og:description" content="빨간 문 너머, 1926 — 당신의 목소리로 남긴 박인환의 시">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#B3261E; --red-dark:#8E1B15; --ink:#1A1A1A; --paper:#F6F1E8; --paper-2:#EDE5D6;
+    --muted:#6B655C; --line:#D9CFBE; --gold:#F2C14E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html{background:var(--paper)}
+  body{
+    min-height:100vh;min-height:100dvh;color:var(--ink);
+    font-family:"Noto Sans KR",system-ui,sans-serif;
+    background:
+      radial-gradient(120% 60% at 50% 0%, #fff8ee 0%, rgba(255,248,238,0) 60%),
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .42  0 0 0 0 .38  0 0 0 0 .33  0 0 0 .07 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>"),
+      var(--paper);
+    display:flex;justify-content:center;
+    padding:max(28px, env(safe-area-inset-top)) 22px max(28px, env(safe-area-inset-bottom));
+  }
+  main{width:100%;max-width:440px;display:flex;flex-direction:column;align-items:center;text-align:center}
+
+  /* 머리글 */
+  .brand{font-family:"Noto Serif KR",serif;font-weight:700;letter-spacing:.32em;font-size:13px;color:var(--red);padding-left:.32em}
+  .brand-sub{margin-top:6px;font-size:11px;letter-spacing:.24em;color:var(--muted)}
+  .rule{width:28px;height:1px;background:var(--red);opacity:.5;margin:18px auto 0}
+
+  /* 빨간 문 */
+  .stage{position:relative;width:200px;height:250px;margin:34px 0 26px;display:flex;justify-content:center;align-items:flex-end}
+  .glow{position:absolute;inset:auto 0 6px;margin:auto;width:220px;height:60px;border-radius:50%;
+        background:radial-gradient(closest-side, rgba(179,38,30,.28), rgba(179,38,30,0));filter:blur(4px)}
+  .door{position:relative;width:132px;height:212px;border-radius:66px 66px 8px 8px;
+        background:linear-gradient(160deg,#C9332A 0%,var(--red) 45%,var(--red-dark) 100%);
+        box-shadow:0 24px 40px -18px rgba(142,27,21,.55), inset 0 0 0 6px rgba(255,255,255,.06);
+        animation:breathe 4.5s ease-in-out infinite}
+  .door::before{content:"";position:absolute;inset:16px 16px 18px;border-radius:52px 52px 4px 4px;border:1px solid rgba(255,255,255,.16)}
+  .door::after{content:"";position:absolute;right:22px;top:54%;width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(242,193,78,.7)}
+  .year{position:absolute;top:58px;left:0;right:0;font-family:"Noto Serif KR",serif;font-weight:700;font-size:15px;letter-spacing:.3em;color:rgba(255,255,255,.82);padding-left:.3em}
+  .playing .door{animation:breathe 1.6s ease-in-out infinite}
+  @keyframes breathe{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+
+  /* 제목 */
+  .kicker{font-size:12px;letter-spacing:.28em;color:var(--red);font-weight:700}
+  h1{font-family:"Noto Serif KR",serif;font-weight:600;font-size:30px;line-height:1.35;margin-top:10px;word-break:keep-all}
+  .first{font-family:"Noto Serif KR",serif;font-size:16px;line-height:1.8;color:var(--muted);margin-top:12px;word-break:keep-all}
+  .meta{margin-top:14px;font-size:13px;color:var(--muted);letter-spacing:.04em}
+  .meta span+span::before{content:"·";margin:0 8px;opacity:.6}
+
+  /* 플레이어 */
+  .card{width:100%;margin-top:28px;background:rgba(255,255,255,.86);border:1px solid var(--line);border-radius:24px;
+        padding:22px 20px 20px;box-shadow:0 18px 40px -28px rgba(26,26,26,.35);backdrop-filter:blur(4px)}
+  .player{display:flex;align-items:center;gap:16px}
+  .play{flex:none;width:64px;height:64px;border-radius:50%;border:0;background:var(--red);color:#fff;cursor:pointer;
+        display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(179,38,30,.7);transition:transform .12s}
+  .play:active{transform:scale(.94)}
+  .play svg{width:24px;height:24px}
+  .track{flex:1;min-width:0}
+  .bars{display:flex;align-items:flex-end;gap:3px;height:28px;margin-bottom:10px}
+  .bars i{flex:1;background:var(--paper-2);border-radius:2px;height:30%;transition:height .25s, background .25s}
+  .bars i.on{background:var(--red)}
+  input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;outline:none;
+        background:linear-gradient(to right,var(--red) var(--p,0%),var(--paper-2) var(--p,0%))}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:14px;height:14px;border-radius:50%;background:var(--red);border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.25)}
+  input[type=range]::-moz-range-thumb{width:14px;height:14px;border-radius:50%;background:var(--red);border:3px solid #fff}
+  .time{display:flex;justify-content:space-between;margin-top:8px;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+
+  /* 버튼 */
+  .actions{display:flex;gap:10px;margin-top:20px}
+  .btn{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;height:52px;border-radius:999px;font-family:inherit;
+       font-size:15px;font-weight:700;text-decoration:none;cursor:pointer;transition:transform .12s}
+  .btn:active{transform:scale(.97)}
+  .btn svg{width:18px;height:18px}
+  .btn.primary{background:var(--ink);color:#fff;border:0}
+  .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+  .hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6}
+
+  /* 상태 */
+  .notice{width:100%;margin-top:28px;padding:22px;border-radius:20px;background:#fff;border:1px dashed var(--line);font-size:14px;line-height:1.7;color:var(--muted)}
+  .notice b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+  .notice .btn{margin-top:14px}
+  .skeleton{height:14px;border-radius:7px;background:linear-gradient(90deg,var(--paper-2),#f7f1e6,var(--paper-2));background-size:200% 100%;animation:sk 1.2s infinite}
+  @keyframes sk{to{background-position:-200% 0}}
+
+  footer{margin-top:34px;font-size:11px;line-height:1.8;color:var(--muted);letter-spacing:.04em}
+  footer .brand{font-size:11px;letter-spacing:.3em;display:block;margin-bottom:4px}
+  .toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--ink);color:#fff;
+         padding:12px 20px;border-radius:999px;font-size:14px;transition:all .3s;pointer-events:none}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  [hidden]{display:none!important}
+  .fade{animation:fade .7s ease both}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<main id="app">
+  <div class="brand">MARIE SEOSA</div>
+  <div class="brand-sub">박인환 탄생 100주년 · 시 낭송 녹음실</div>
+  <div class="rule"></div>
+
+  <div class="stage"><div class="glow"></div><div class="door"><div class="year">1926</div></div></div>
+
+  <div class="kicker fade">MY RECITATION</div>
+  <h1 class="fade" id="title">나의 낭송</h1>
+  <p class="first fade" id="first" hidden></p>
+  <p class="meta fade" id="meta"><span>빨간 문 너머, 당신의 목소리로 남긴 시</span></p>
+
+  <!-- 불러오는 중 -->
+  <section class="card" id="loading">
+    <div class="skeleton" style="width:70%;margin:6px auto 14px"></div>
+    <div class="skeleton" style="width:100%"></div>
+  </section>
+
+  <!-- 재생 -->
+  <section class="card fade" id="playerCard" hidden>
+    <div class="player">
+      <button class="play" id="play" aria-label="재생">
+        <svg id="icPlay" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
+        <svg id="icPause" viewBox="0 0 24 24" fill="currentColor" hidden><rect x="6" y="5" width="4.2" height="14" rx="1.2"/><rect x="13.8" y="5" width="4.2" height="14" rx="1.2"/></svg>
+      </button>
+      <div class="track">
+        <div class="bars" id="bars"></div>
+        <input type="range" id="seek" min="0" max="1000" value="0" aria-label="재생 위치">
+        <div class="time"><span id="cur">0:00</span><span id="dur">0:00</span></div>
+      </div>
+    </div>
+    <div class="actions">
+      <a class="btn primary" id="download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>
+        내려받기
+      </a>
+      <button class="btn ghost" id="share">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1m-7.6 6.5 7.6 4.1"/></svg>
+        공유하기
+      </button>
+    </div>
+    <p class="hint">아이폰은 내려받은 파일이 ‘파일’ 앱의 다운로드 폴더에 저장됩니다.</p>
+  </section>
+
+  <!-- 아직 준비 중 / 잘못된 QR -->
+  <section class="notice fade" id="notice" hidden>
+    <b id="noticeTitle">낭송을 준비하는 중입니다</b>
+    <span id="noticeText">전시장 네트워크 상태에 따라 몇 분 정도 걸릴 수 있어요. 잠시 후 다시 확인해 주세요.</span>
+    <button class="btn ghost" id="retry">다시 확인하기</button>
+  </section>
+
+  <footer>
+    <span class="brand">MARIE SEOSA RE:OPEN</span>
+    녹음은 1년 동안 보관된 뒤 삭제됩니다.
+  </footer>
+  <audio id="audio" preload="metadata" playsinline></audio>
+</main>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===================== 설정 (키오스크 운영자 메뉴와 같은 값) ===================== */
+const SUPABASE_URL = "https://czzijngdtmnyzsxvxtvr.supabase.co";    // Supabase 프로젝트 URL
+const BUCKET = "recordings";                          // Storage 버킷 (공개)
+const KEY = "sb_publishable_z20fx67TfUvvF_fpqW-KrA_LONMS0Oe";                                       // sb_publishable_… (시 제목·날짜 표시용, 비워도 재생·다운로드는 됨)
+const POEMS = {                                       // 키오스크 poems.json 과 같은 id
+  mokma:       { title:"목마와 숙녀", first:"한 잔의 술을 마시고 …" },
+  sewol:       { title:"세월이 가면", first:"지금 그 사람의 이름은 잊었지만 …" },
+  black_river: { title:"검은 강",     first:"신이란 이름으로서 …" },
+};
+
+/* ===================== 동작 ===================== */
+const $ = s => document.getElementById(s);
+const id = (new URLSearchParams(location.search).get("id") || "").toUpperCase().replace(/[^0-9A-Z]/g, "");
+const fileUrl = ext => `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${id}.${ext}`;
+const audio = $("audio");
+let poemTitle = "", fileExt = "m4a";
+
+function toast(m){ const t=$("toast"); t.textContent=m; t.classList.add("show"); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove("show"),2200); }
+const fmt = s => !isFinite(s) ? "0:00" : `${Math.floor(s/60)}:${String(Math.floor(s%60)).padStart(2,"0")}`;
+
+// 막대 장식 (재생 중 움직임)
+const BAR_N = 28; const bars = [];
+for(let i=0;i<BAR_N;i++){ const b=document.createElement("i"); b.style.height=(25+Math.abs(Math.sin(i*1.7))*55)+"%"; $("bars").appendChild(b); bars.push(b); }
+let raf;
+function animateBars(){
+  const p = audio.duration ? audio.currentTime/audio.duration : 0;
+  bars.forEach((b,i)=>{ b.classList.toggle("on", i/BAR_N <= p);
+    if(!audio.paused) b.style.height = (20 + Math.random()*75) + "%"; });
+  if(!audio.paused) raf = setTimeout(()=>requestAnimationFrame(animateBars), 120);
+}
+
+async function exists(url){ try{ const r=await fetch(url,{method:"HEAD",cache:"no-store"}); return r.ok; }catch(e){ return false; } }
+
+function showNotice(title, text, canRetry){
+  $("loading").hidden = true; $("playerCard").hidden = true; $("notice").hidden = false;
+  $("noticeTitle").textContent = title; $("noticeText").textContent = text; $("retry").hidden = !canRetry;
+}
+
+async function loadMeta(){
+  if(!KEY) return;
+  try{
+    const h = {apikey:KEY}; if(!KEY.startsWith("sb_")) h.Authorization = "Bearer "+KEY;
+    const r = await fetch(`${SUPABASE_URL}/rest/v1/recordings?id=eq.${id}&select=poem_id,recorded_at,duration_sec`, {headers:h});
+    const row = r.ok ? (await r.json())[0] : null;
+    if(!row) return;
+    const p = POEMS[row.poem_id];
+    if(p){ poemTitle = p.title; $("title").textContent = `「${p.title}」`; $("first").textContent = p.first; $("first").hidden = false; document.title = `「${p.title}」 · 나의 낭송`; }
+    const parts = [];
+    if(row.recorded_at){ const d=new Date(row.recorded_at); parts.push(`${d.getFullYear()}. ${d.getMonth()+1}. ${d.getDate()}`); }
+    if(row.duration_sec) parts.push(`${row.duration_sec}초`);
+    if(parts.length) $("meta").innerHTML = parts.map(s=>`<span>${s}</span>`).join("");
+  }catch(e){}
+}
+
+async function load(){
+  if(!id){ showNotice("QR 코드를 다시 확인해 주세요", "녹음 정보를 찾을 수 없습니다.", false); return; }
+  $("notice").hidden = true; $("loading").hidden = false;
+  loadMeta();
+  let url = null;
+  for(const ext of ["m4a","wav"]){ if(await exists(fileUrl(ext))){ url = fileUrl(ext); fileExt = ext; break; } }
+  if(!url){ showNotice("낭송을 준비하는 중입니다", "전시장 네트워크 상태에 따라 몇 분 정도 걸릴 수 있어요. 잠시 후 다시 확인해 주세요.", true); return; }
+  audio.src = url;
+  const name = `마리서사_${poemTitle || "나의낭송"}_${id}.${fileExt}`;
+  $("download").href = `${url}?download=${encodeURIComponent(name)}`;   // 다른 주소의 파일도 확실히 내려받도록
+  $("loading").hidden = true; $("playerCard").hidden = false;
+}
+
+$("play").onclick = () => { audio.paused ? audio.play() : audio.pause(); };
+audio.onplay = () => { $("icPlay").hidden = true; $("icPause").hidden = false; document.body.classList.add("playing"); animateBars(); };
+audio.onpause = audio.onended = () => { $("icPlay").hidden = false; $("icPause").hidden = true; document.body.classList.remove("playing"); };
+audio.ontimeupdate = () => {
+  const p = audio.duration ? audio.currentTime/audio.duration : 0;
+  $("seek").value = p*1000; $("seek").style.setProperty("--p", (p*100)+"%");
+  $("cur").textContent = fmt(audio.currentTime); bars.forEach((b,i)=>b.classList.toggle("on", i/BAR_N <= p));
+};
+audio.onloadedmetadata = () => $("dur").textContent = fmt(audio.duration);
+$("seek").oninput = e => { if(audio.duration) audio.currentTime = e.target.value/1000*audio.duration; };
+$("download").addEventListener("click", () => toast("내려받기를 시작합니다"));
+$("share").onclick = async () => {
+  const data = { title: poemTitle ? `「${poemTitle}」 · 나의 낭송` : "나의 낭송", text: "MARIE SEOSA 1926 — 내 목소리로 남긴 박인환의 시", url: location.href };
+  try{ if(navigator.share){ await navigator.share(data); return; } }catch(e){ return; }
+  try{ await navigator.clipboard.writeText(location.href); toast("링크를 복사했습니다"); }catch(e){ toast(location.href); }
+};
+$("retry").onclick = load;
+load();
+</script>
+</body>
+</html>
